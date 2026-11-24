@@ -1,0 +1,67 @@
+### Health Check
+GET http://localhost:5000/api/auth/me
+
+### Register
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test Citizen",
+  "email": "test@example.com",
+  "password": "Test@123",
+  "role": "citizen"
+}
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@gov.in",
+  "password": "Admin@123"
+}
+
+### Get Complaints
+GET http://localhost:5000/api/complaints
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Submit Complaint
+POST http://localhost:5000/api/complaints
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "title": "Water pipe burst on Main Street",
+  "description": "Large water pipe burst near Zone 2 Main Street junction. Water flooding the road.",
+  "category": "water",
+  "location": {
+    "address": "Main Street, Zone 2",
+    "lat": 13.0827,
+    "lng": 80.2707,
+    "zone": "Zone 2"
+  }
+}
+
+### AI Classify
+POST http://localhost:5000/api/ai/classify
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "title": "Pothole on highway",
+  "description": "Large pothole on NH-48 near Zone 3 flyover causing accidents"
+}
+
+### IoT Simulate
+POST http://localhost:5000/api/iot/simulate
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### AI Chat
+POST http://localhost:5000/api/ai/chat
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "question": "What are the top complaint areas this week?",
+  "context": "Government AI OS official chatbot"
+}
